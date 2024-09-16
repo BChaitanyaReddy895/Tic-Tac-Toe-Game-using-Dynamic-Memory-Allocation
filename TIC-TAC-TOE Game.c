@@ -37,7 +37,6 @@ void printGrid(char** grid)
 }
 int checkWin(char** grid, char symbol) 
 {
-    // Check rows and columns
     int i;
     for (i = 0; i < 3; i++) 
 	{
@@ -47,7 +46,6 @@ int checkWin(char** grid, char symbol)
             return 1;
         }
     }
-    // Check diagonals
     if ((grid[0][0] == symbol && grid[1][1] == symbol && grid[2][2] == symbol) ||
         (grid[0][2] == symbol && grid[1][1] == symbol && grid[2][0] == symbol)) 
 	{
@@ -101,15 +99,11 @@ int main()
             gameWon = 1;
         }
     }
-
-    // If no player has won and the grid is full, it's a tie
     if (!gameWon) 
 	{
         printGrid(grid);
         printf("It's a tie!\n");
     }
-    
-    // Free the dynamically allocated memory
     int i;
     for (i = 0; i < 3; i++) 
 	{
